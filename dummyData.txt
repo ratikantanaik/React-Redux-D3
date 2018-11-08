@@ -1,0 +1,56 @@
+{
+    "itcDevResult": [
+        {
+            "name": "1st",
+            "values": {
+                "T": 30,
+                "A": 50
+            }
+        },
+        {
+            "name": "2nd",
+            "values": {
+                "T": 20,
+                "A": 70
+            }
+        },
+        {
+            "name": "3rd",
+            "values": {
+                "T": 200,
+                "A": 140
+            }
+        },
+        {
+            "name": "4th",
+            "values": {
+                "T": 120,
+                "A": 60
+            }
+        }
+    ],
+    "itcFinacialMgmtData": [
+        {
+            "series1": 10,
+            "series2": 40,
+            "name": "DMD"
+        },
+        {
+            "series1": 30,
+            "series2": 5,
+            "name": "DEI"
+        },
+        {
+            "series1": 60,
+            "series2": 20,
+            "name": "DCP"
+        }
+    ],
+    "kpiDetail": {
+        "totalPortfolio": "$3,450,589",
+        "ytdExpenditure": "$838,698",
+        "deliveryRate": "24%",
+        "deliveryProjection": "$3,280,070",
+        "expectedDelivery": "95%"
+    }
+}
