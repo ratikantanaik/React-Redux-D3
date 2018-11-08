@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ITCModelStoreContainer" CdmEntityContainer="ITC_Conn">
+    <EntitySetMapping Name="snapshotCorporateIndicators">
+      <EntityTypeMapping TypeName="ITCModel.snapshotCorporateIndicator">
+        <MappingFragment StoreEntitySet="snapshotCorporateIndicators">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IndicatorID" ColumnName="IndicatorID" />
+          <ScalarProperty Name="ITCProjectID" ColumnName="ITCProjectID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Startdate" ColumnName="Startdate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+          <ScalarProperty Name="SectionName" ColumnName="SectionName" />
+          <ScalarProperty Name="FsclYear" ColumnName="FsclYear" />
+          <ScalarProperty Name="WBSE" ColumnName="WBSE" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="LogframeNodeID" ColumnName="LogframeNodeID" />
+          <ScalarProperty Name="LogFrameNodeDesc" ColumnName="LogFrameNodeDesc" />
+          <ScalarProperty Name="LogframeNodeOrder" ColumnName="LogframeNodeOrder" />
+          <ScalarProperty Name="LogFrameNodeTypeID" ColumnName="LogFrameNodeTypeID" />
+          <ScalarProperty Name="TypeOfResult" ColumnName="TypeOfResult" />
+          <ScalarProperty Name="ProjectIndicators" ColumnName="ProjectIndicators" />
+          <ScalarProperty Name="Baseline" ColumnName="Baseline" />
+          <ScalarProperty Name="ProjectTargets" ColumnName="ProjectTargets" />
+          <ScalarProperty Name="YearlyTargets" ColumnName="YearlyTargets" />
+          <ScalarProperty Name="MeansOfVerification" ColumnName="MeansOfVerification" />
+          <ScalarProperty Name="Achievements" ColumnName="Achievements" />
+          <ScalarProperty Name="CorporateOutcomeIndicatorID" ColumnName="CorporateOutcomeIndicatorID" />
+          <ScalarProperty Name="CorporateOutcomeIndicatorDesc" ColumnName="CorporateOutcomeIndicatorDesc" />
+          <ScalarProperty Name="CorporateOutputIndicatorID" ColumnName="CorporateOutputIndicatorID" />
+          <ScalarProperty Name="CorporateOutputIndicatorDesc" ColumnName="CorporateOutputIndicatorDesc" />
+          <ScalarProperty Name="CorporateImpactIndicatorID" ColumnName="CorporateImpactIndicatorID" />
+          <ScalarProperty Name="CorporateImpactIndicatorDesc" ColumnName="CorporateImpactIndicatorDesc" />
+          <ScalarProperty Name="Target_Q1" ColumnName="Target_Q1" />
+          <ScalarProperty Name="Target_Q2" ColumnName="Target_Q2" />
+          <ScalarProperty Name="Target_Q3" ColumnName="Target_Q3" />
+          <ScalarProperty Name="Target_Q4" ColumnName="Target_Q4" />
+          <ScalarProperty Name="Actual_Q1" ColumnName="Actual_Q1" />
+          <ScalarProperty Name="Actual_Q2" ColumnName="Actual_Q2" />
+          <ScalarProperty Name="Actual_Q3" ColumnName="Actual_Q3" />
+          <ScalarProperty Name="Actual_Q4" ColumnName="Actual_Q4" />
+          <ScalarProperty Name="TargetPTD" ColumnName="TargetPTD" />
+          <ScalarProperty Name="ActualPTD" ColumnName="ActualPTD" />
+          <ScalarProperty Name="LastRunDate" ColumnName="LastRunDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

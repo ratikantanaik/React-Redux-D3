@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ITCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ITC.dbo.snapshotCorporateIndicators' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="snapshotCorporateIndicators">
+    <Key>
+      <PropertyRef Name="IndicatorID" />
+      <PropertyRef Name="ProjectID" />
+      <PropertyRef Name="LogframeNodeID" />
+    </Key>
+    <Property Name="Id" Type="bigint" />
+    <Property Name="IndicatorID" Type="int" Nullable="false" />
+    <Property Name="ITCProjectID" Type="char" MaxLength="4" />
+    <Property Name="Title" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Startdate" Type="datetime2" Precision="7" />
+    <Property Name="EndDate" Type="datetime2" Precision="7" />
+    <Property Name="SectionID" Type="varchar" MaxLength="10" />
+    <Property Name="SectionName" Type="varchar" MaxLength="20" />
+    <Property Name="FsclYear" Type="int" />
+    <Property Name="WBSE" Type="ntext" />
+    <Property Name="ProjectID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="LogframeNodeID" Type="int" Nullable="false" />
+    <Property Name="LogFrameNodeDesc" Type="varchar" MaxLength="1000" />
+    <Property Name="LogframeNodeOrder" Type="int" />
+    <Property Name="LogFrameNodeTypeID" Type="int" />
+    <Property Name="TypeOfResult" Type="varchar" MaxLength="10" />
+    <Property Name="ProjectIndicators" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Baseline" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ProjectTargets" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="YearlyTargets" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MeansOfVerification" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Achievements" Type="ntext" />
+    <Property Name="CorporateOutcomeIndicatorID" Type="int" />
+    <Property Name="CorporateOutcomeIndicatorDesc" Type="nvarchar" MaxLength="1000" />
+    <Property Name="CorporateOutputIndicatorID" Type="int" />
+    <Property Name="CorporateOutputIndicatorDesc" Type="nvarchar" MaxLength="1000" />
+    <Property Name="CorporateImpactIndicatorID" Type="int" />
+    <Property Name="CorporateImpactIndicatorDesc" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Target_Q1" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Target_Q2" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Target_Q3" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Target_Q4" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Actual_Q1" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Actual_Q2" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Actual_Q3" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Actual_Q4" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TargetPTD" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ActualPTD" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="LastRunDate" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityContainer Name="ITCModelStoreContainer">
+    <EntitySet Name="snapshotCorporateIndicators" EntityType="Self.snapshotCorporateIndicators" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[snapshotCorporateIndicators].[Id] AS [Id], 
+[snapshotCorporateIndicators].[IndicatorID] AS [IndicatorID], 
+[snapshotCorporateIndicators].[ITCProjectID] AS [ITCProjectID], 
+[snapshotCorporateIndicators].[Title] AS [Title], 
+[snapshotCorporateIndicators].[Startdate] AS [Startdate], 
+[snapshotCorporateIndicators].[EndDate] AS [EndDate], 
+[snapshotCorporateIndicators].[SectionID] AS [SectionID], 
+[snapshotCorporateIndicators].[SectionName] AS [SectionName], 
+[snapshotCorporateIndicators].[FsclYear] AS [FsclYear], 
+[snapshotCorporateIndicators].[WBSE] AS [WBSE], 
+[snapshotCorporateIndicators].[ProjectID] AS [ProjectID], 
+[snapshotCorporateIndicators].[LogframeNodeID] AS [LogframeNodeID], 
+[snapshotCorporateIndicators].[LogFrameNodeDesc] AS [LogFrameNodeDesc], 
+[snapshotCorporateIndicators].[LogframeNodeOrder] AS [LogframeNodeOrder], 
+[snapshotCorporateIndicators].[LogFrameNodeTypeID] AS [LogFrameNodeTypeID], 
+[snapshotCorporateIndicators].[TypeOfResult] AS [TypeOfResult], 
+[snapshotCorporateIndicators].[ProjectIndicators] AS [ProjectIndicators], 
+[snapshotCorporateIndicators].[Baseline] AS [Baseline], 
+[snapshotCorporateIndicators].[ProjectTargets] AS [ProjectTargets], 
+[snapshotCorporateIndicators].[YearlyTargets] AS [YearlyTargets], 
+[snapshotCorporateIndicators].[MeansOfVerification] AS [MeansOfVerification], 
+[snapshotCorporateIndicators].[Achievements] AS [Achievements], 
+[snapshotCorporateIndicators].[CorporateOutcomeIndicatorID] AS [CorporateOutcomeIndicatorID], 
+[snapshotCorporateIndicators].[CorporateOutcomeIndicatorDesc] AS [CorporateOutcomeIndicatorDesc], 
+[snapshotCorporateIndicators].[CorporateOutputIndicatorID] AS [CorporateOutputIndicatorID], 
+[snapshotCorporateIndicators].[CorporateOutputIndicatorDesc] AS [CorporateOutputIndicatorDesc], 
+[snapshotCorporateIndicators].[CorporateImpactIndicatorID] AS [CorporateImpactIndicatorID], 
+[snapshotCorporateIndicators].[CorporateImpactIndicatorDesc] AS [CorporateImpactIndicatorDesc], 
+[snapshotCorporateIndicators].[Target_Q1] AS [Target_Q1], 
+[snapshotCorporateIndicators].[Target_Q2] AS [Target_Q2], 
+[snapshotCorporateIndicators].[Target_Q3] AS [Target_Q3], 
+[snapshotCorporateIndicators].[Target_Q4] AS [Target_Q4], 
+[snapshotCorporateIndicators].[Actual_Q1] AS [Actual_Q1], 
+[snapshotCorporateIndicators].[Actual_Q2] AS [Actual_Q2], 
+[snapshotCorporateIndicators].[Actual_Q3] AS [Actual_Q3], 
+[snapshotCorporateIndicators].[Actual_Q4] AS [Actual_Q4], 
+[snapshotCorporateIndicators].[TargetPTD] AS [TargetPTD], 
+[snapshotCorporateIndicators].[ActualPTD] AS [ActualPTD], 
+[snapshotCorporateIndicators].[LastRunDate] AS [LastRunDate]
+FROM [dbo].[snapshotCorporateIndicators] AS [snapshotCorporateIndicators]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

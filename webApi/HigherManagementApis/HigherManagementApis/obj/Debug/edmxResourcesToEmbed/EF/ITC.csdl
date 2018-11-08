@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ITCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="snapshotCorporateIndicator">
+    <Key>
+      <PropertyRef Name="IndicatorID" />
+      <PropertyRef Name="ProjectID" />
+      <PropertyRef Name="LogframeNodeID" />
+    </Key>
+    <Property Name="Id" Type="Int64" />
+    <Property Name="IndicatorID" Type="Int32" Nullable="false" />
+    <Property Name="ITCProjectID" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="Title" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Startdate" Type="DateTime" Precision="7" />
+    <Property Name="EndDate" Type="DateTime" Precision="7" />
+    <Property Name="SectionID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="SectionName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FsclYear" Type="Int32" />
+    <Property Name="WBSE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectID" Type="Guid" Nullable="false" />
+    <Property Name="LogframeNodeID" Type="Int32" Nullable="false" />
+    <Property Name="LogFrameNodeDesc" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="LogframeNodeOrder" Type="Int32" />
+    <Property Name="LogFrameNodeTypeID" Type="Int32" />
+    <Property Name="TypeOfResult" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ProjectIndicators" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Baseline" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ProjectTargets" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="YearlyTargets" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MeansOfVerification" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Achievements" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CorporateOutcomeIndicatorID" Type="Int32" />
+    <Property Name="CorporateOutcomeIndicatorDesc" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="CorporateOutputIndicatorID" Type="Int32" />
+    <Property Name="CorporateOutputIndicatorDesc" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="CorporateImpactIndicatorID" Type="Int32" />
+    <Property Name="CorporateImpactIndicatorDesc" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Target_Q1" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Target_Q2" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Target_Q3" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Target_Q4" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Actual_Q1" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Actual_Q2" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Actual_Q3" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Actual_Q4" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TargetPTD" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ActualPTD" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="LastRunDate" Type="DateTime" Precision="7" />
+  </EntityType>
+  <EntityContainer Name="ITC_Conn" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="snapshotCorporateIndicators" EntityType="Self.snapshotCorporateIndicator" />
+  </EntityContainer>
+</Schema>

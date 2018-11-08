@@ -1,0 +1,100 @@
+
+.body-container{
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  background:#f4f5f4;
+}
+
+.fill {
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  background-color: '#D3D3D3';
+}
+
+.svg {
+  background-color: '#8470ff';
+}
+
+.grid .tick {
+  stroke: rgb(102, 15, 15);
+  opacity: 0.7;
+}
+.grid path {
+    stroke-width: 1;
+}
+.top-kpi-elements .col-md-2{
+  width:20%;
+}
+
+.toTalPortfolioKPI{
+  padding:10px 15px;
+  background:#00b050;
+}
+.main-head{
+  color: #fff;
+  text-align: left;
+  margin: 0px;
+}
+.main-val{
+  font-size: 20px;
+  color: #fff;
+  font-weight: 600;
+  text-align: left;
+  margin: 0px;
+}
+
+
+
+.ytdExpenditureKPI{
+
+  padding:10px 15px;
+  background:#92d050;
+}
+
+.deliveryRateKPI{
+
+  padding:10px 15px;
+  background:#01ffcc;
+}
+
+.deliveryProjectionKPI{
+  padding:10px 15px;
+  background:#0c9;
+}
+
+.expectedDeliveryKPI{
+  padding:10px 15px;
+  background:#00b0f0;
+}
+
+@media screen and (min-width: 300px) and (max-width:992px){
+  .top-kpi-elements .col-md-2{
+    width:100%;
+  }
+}
+
+.top-nav{
+  float:right;
+  margin:10px 20px 0px 0px;
+}
+
+.top-nav a{
+  font-size: 14px;
+    color: #337ab7;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.top-nav a i{
+  margin-right:5px;
+}
+.padding-left-0{
+  padding-left:0px;
+}
+.padding-right-0{
+  padding-right:0px;
+}
+.logo{
+  color:#607D8B;
+}
