@@ -6,7 +6,7 @@ const KPILink = (props) => {
         <div className="col-md-2">
             <Link to={props.to}>
                 <div className={props.clsName}>
-                    <p className="main-val">{props.kpiData? props.kpiData.totalPortfolio : 'N/A'}</p>
+                    <p className="main-val">{props.val? props.val : 'N/A'}</p>
                     <p className="main-head">{props.linkName}</p>
                 </div>
             </Link>

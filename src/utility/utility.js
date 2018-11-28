@@ -1,9 +1,8 @@
 import Constants from "../constants";
-import * as d3 from "d3";
 
 const utility = {
     activateLeftMenuItem: (leftNavList, menuItemName) => {
-        console.log(leftNavList);
+        
         let leftNavListNew = [...leftNavList];
 
         leftNavListNew.forEach((item) => {
@@ -26,10 +25,6 @@ const utility = {
             return undefined;
         else
             return moduleName;
-    },
-
-    removeChartContentFromId: (id) => {
-        d3.select(`#${id}`).select('svg').remove()
     }
 }
 

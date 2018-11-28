@@ -6,25 +6,13 @@ const initialState = {
 }
 
 const letNavReducer = (state = initialState, action) => {
-    
     switch(action.type){
         case Constants.LOAD_LEFT_NAV_SUCCESS: 
-
-            let moduleName = Utility.getModuleNameFromUrl();
-            let navList = action.payload;
-
-            let navWithCss = navList.map((nav) => {
-                
-                nav.css = (nav.url === moduleName)? 
-                Constants.LIST_GROUP_ITEM_ACTIVE : 
-                Constants.LIST_GROUP_ITEM; 
-
-                return nav;
-            });
-
             return {
                 ...state,
-                leftNavList: navWithCss
+                leftNavList: Utility.activateLeftMenuItem(
+                    action.payload, 
+                    Utility.getModuleNameFromUrl()) 
             }
 
         case Constants.SELECT_NAV:
@@ -33,8 +21,9 @@ const letNavReducer = (state = initialState, action) => {
                 leftNavList: 
                     Utility.activateLeftMenuItem(
                         state.leftNavList, 
-                        action.payload) 
+                        action.payload? action.payload : Utility.getModuleNameFromUrl()) 
             }
+
         default:
             return state;
     }

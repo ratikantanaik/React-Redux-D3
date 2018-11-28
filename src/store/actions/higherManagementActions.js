@@ -26,14 +26,22 @@ const higherManagementActions = {
 
                 // End of Delete this hack to test
 
-                let newParams = {...getState().hmDetails.devResParams, typeOfResult: event.target.name, corporateIndicatorID: coid };
+                let newParams = {...getState().hmDetails.hmParams, typeOfResult: event.target.name, selectedTypeOfResult: event.target.name, corporateIndicatorID: coid };
                 processHMAPICall(dispatch, newParams)
             } 
     },
 
     changeFiscalYear: (event) => {
         return (dispatch, getState) => {
-            let newParams = {...getState().hmDetails.devResParams, fsclYear: event.target.name };
+            let newParams = {...getState().hmDetails.hmParams, fsclYear: event.target.name, selectedFiscalYear: event.target.name };
+            processHMAPICall(dispatch, newParams)
+        }
+    },
+
+    changeOfFnMgmtRptItemCnt: (event) => {
+        return (dispatch, getState) => {
+            let newParams = {...getState().hmDetails.hmParams, fnMgmtItemCnt: event.target.name };
+            console.log(newParams);
             processHMAPICall(dispatch, newParams)
         }
     }
@@ -46,7 +54,9 @@ const processHMAPICall = (dispatch, params) => {
     ApiCallUtility.getHMDashboadDataFromApi(params)
     .then(result => {
         if(result.status === 200)
+        {
             dispatch(processHMData({ hmData: result.data, hmParams: params }));   
+        }
     })
     .catch(err => {
         dispatch(hmFetchError(err));

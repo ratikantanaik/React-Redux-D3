@@ -11,7 +11,11 @@ const apiCallUtility = {
                     'typeOfResult' : params.typeOfResult,
                     'sectionID' : params.sectionID,
                     'corporateIndicatorID' : params.corporateIndicatorID,
-                    'fsclYear' : params.fsclYear
+                    'fsclYear' : params.fsclYear,
+                    'fnMgmtItemCnt': params.fnMgmtItemCnt,
+                    'wantKpiData': params.wantKpiData,
+                    'wantDevResData': params.wantDevResData,
+                    'wantFnMgmtData': params.wantFnMgmtData
                 },
                 responseType: 'json'
             }

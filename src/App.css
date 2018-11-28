@@ -98,3 +98,10 @@
 .logo{
   color:#607D8B;
 }
+.top-kpi-elements a:hover{
+  text-decoration:none;
+}
+
+a:hover { 
+  background-color: red;
+}

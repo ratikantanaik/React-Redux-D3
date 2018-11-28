@@ -11,14 +11,14 @@ class FMRChart extends React.Component{
     drawStackedChart(itcFinacialMgmtData, width, height){
         
         d3.select('#fmrChart').select('svg').remove();
-
+        
         if(itcFinacialMgmtData && itcFinacialMgmtData.length > 0){
             let data = [...itcFinacialMgmtData];
+            
             let marginBottom  = 80,
                 marginTop  = 80,
                 marginRight = 50,
                 marginLeft = 50;
-                
 
             let legendTexts = ['Series1', 'Series2'];
             let legendColors = [Constants.TARGET_COLOR, Constants.ACTUAL_COLOR];
@@ -54,8 +54,12 @@ class FMRChart extends React.Component{
             const x = d3.scaleBand().range([0, width - (marginRight + marginLeft - 20)]).domain(xAsixData);
             const xAxis = d3.axisBottom(x);
 
+            // Calculate the max value of y axis
+            let xMax = d3.max(data, item => item.items[1].y1);
+            xMax = xMax + (xMax / 10);
+
             // Create y scale
-            const y = d3.scaleLinear().rangeRound([height - (marginTop + marginBottom - 10), 0]).domain([0, 100]);
+            const y = d3.scaleLinear().rangeRound([height - (marginTop + marginBottom - 10), 0]).domain([0, xMax]);
             const yAxis = d3.axisLeft(y).ticks(10);
             
             // Adding grid
@@ -94,16 +98,49 @@ class FMRChart extends React.Component{
                 .attr('width', 50) //x.bandwidth())
                 .attr('y', height - (marginBottom + marginTop - 10))
                 .attr('height', 0)
-                .style('fill', d => d.color)
+                .attr('fill', d => d.color)
+                .on('mouseover', d => {
+
+                    //console.log(d3.select(d3.event.target));
+
+                    let rect = d3.select(d3.event.target);
+                    let currCol = rect.attr('fill');
+
+                    let xVal = rect.attr('x');
+                    let yVal = rect.attr('y');
+                    let transVal = rect.attr('transform');
+
+                    d3.select('#fmrChart').select('svg').append('text')
+                        .attr('id', 'hoverText')
+                        .attr('x', 500)
+                        .attr('y', +yVal + 90)
+                        //.style("fill", "white") 
+                        .style("font-weight", "bold") 
+                        .attr('transform', transVal).text(d.val);
+
+                    if(currCol === Constants.TARGET_COLOR){
+                        rect.attr('fill', Constants.TARGET_HOVER_COLOR);
+                    }
+                    else{
+                        rect.attr('fill', Constants.ACTUAL_HOVER_COLOR);
+                    }
+                })
+                .on('mouseout', d => {
+                    let rect = d3.select(d3.event.target);
+                    let currCol = rect.attr('fill');
+                    d3.select('#hoverText').remove();
+                    if(currCol === Constants.TARGET_HOVER_COLOR){
+                        rect.attr('fill', Constants.TARGET_COLOR);
+                    }
+                    else{
+                        rect.attr('fill', Constants.ACTUAL_COLOR);
+                    }
+                })
                 .transition()
                     .duration(1500)
                     .delay(10)
                     .attr('y', d => y(d.y1))
                     .attr('height', d => y(d.y0) - y(d.y1))
-
-                //.on('mouseover', d => {
-                    //d3.select(this).style('fill', 'black');
-                //})
 
             // Adding number is legends with their position
             const legends = svg.selectAll('.legend')
@@ -119,12 +156,14 @@ class FMRChart extends React.Component{
                 .attr('y', height / 2 + 20)
                 .attr('width', 18)
                 .attr('height', 18)
+                .attr("style", `outline: thin solid black;`)
                 .style('fill', (d, i) => legendColors[i]);
 
             // Adding text to the legends created above
             legends.append('text')
                 .attr('x', width / 2 - marginBottom)
                 .attr('y', height / 2 + 33)
+                .style('font-size', '12px')
                 .text(d => d);
 
             // Adding title for the chart
@@ -136,7 +175,7 @@ class FMRChart extends React.Component{
                 .text(title);
         }
         else{
-            d3.select('#devResChart').append('svg')
+            d3.select('#fmrChart').append('svg')
             .attr('width', width)
             .attr('height', height)
             .attr("style", `outline: thin solid ${Constants.GRID_COLOR};`)
@@ -159,8 +198,11 @@ class FMRChart extends React.Component{
             if(!this.props.data){
                 isDataChanged = true;
             }
+            else if(this.props.data.itcFinacialMgmtData.length !== nextProps.data.itcFinacialMgmtData.length){
+                isDataChanged = true;
+            }
             else{
-                this.props.data.itcFinacialMgmtData.map((item, index) => {
+                this.props.data.itcFinacialMgmtData.forEach((item, index) => {
                     if(!isDataChanged){
                         if(!isDataChanged && item.series1 !== itcFinacialMgmtData[index].series1)
                             isDataChanged = true;
@@ -169,7 +211,7 @@ class FMRChart extends React.Component{
                         else if(!isDataChanged && item.name !== itcFinacialMgmtData[index].name)
                             isDataChanged = true;
                     }
-                })
+                });
             } 
         }
 

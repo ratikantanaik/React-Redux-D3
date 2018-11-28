@@ -1,22 +1,18 @@
 import Constants from '../../constants';
 
 const initialState = {
-        devResParams: {
+        hmParams: {
             typeOfResult: 'Outcome',
             sectionID: '82',
             corporateIndicatorID: 52,
-            fsclYear: 2018
-        },
-
-        financialMgmtRptParams: {
-            itemsLength: 3
+            fsclYear: 2018,
+            fnMgmtItemCnt: 3,
+            wantDevResData: true,
+            wantFnMgmtData: true,
+            wantKpiData: true,
+            selectedTypeOfResult: 'Type of result',
+            selectedFiscalYear: 'Fiscal Year'
         }
-
-    // hmData: {
-    //     itcDevResult: [],
-    //     itcFinacialMgmtData: [],
-    //     kpiDetail: null
-    // }
 }
 
 const higherManagementReducer = (state = initialState, { type, payload}) => {
@@ -25,7 +21,7 @@ const higherManagementReducer = (state = initialState, { type, payload}) => {
             return { 
                 ...state, 
                 hmData: payload.hmData, 
-                devResParams: payload.hmParams
+                hmParams: payload.hmParams
             };
         default:
             return state;

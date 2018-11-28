@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import leftNavActions from '../../store/actions/leftNavActions';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class LeftNav extends React.Component{
 
@@ -11,6 +11,13 @@ class LeftNav extends React.Component{
 
     componentDidMount(){
         this.props.loadNav({userId: 2000});
+        this.unlisten = this.props.history.listen((location, action) => {
+            this.props.navSelect();
+        });
+    }
+
+    componentWillUnmount(){
+        this.unlisten();
     }
 
     render(){
@@ -43,4 +50,4 @@ const mapDispatchToProps = {
         loadNav: leftNavActions.loadNav
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LeftNav);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LeftNav));

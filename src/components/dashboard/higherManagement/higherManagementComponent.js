@@ -4,45 +4,39 @@ import DevelopmentResultChart from '../../charts/DevResChart';
 import FinancialManagementReportChart from '../../charts/FnMgmtRptChart';
 import hmActions from '../../../store/actions/higherManagementActions';
 import Kpis from './kpiComponent'; 
-import Message from '../../message';
 import DevResultFilter from '../higherManagement/devResultFilterComponent';
 import FinancialMgmtRptFilter from '../higherManagement/financialMgmtRptFilterComponent';
+import Constants from '../../../constants';
 
 class HigherManagement extends React.Component {
     
     componentDidMount(){
-        this.props.getHMData(this.props.devResParams);
+        this.props.getHMData(this.props.hmParams);
     }
 
     render(){
-        const chartWidth = 520, 
-              chartHeight = 420;
-              
         return(
             <div className="container-fluid padding-left-0">
                 <div className="panel panel-default padding-left-0" style={{height: '700px', textAlign: 'center'}}>
-                    { 
-                        (this.props.hmData && this.props.hmData.kpiDetail)? 
-                            <Kpis kpiData={this.props.hmData.kpiDetail} />
-                            :
-                            <Message msg="KPI data is missing" marginTop="100px" />
-                    }
+                    <Kpis {...this.props.hmData} />
                     <div className="col-md-12">
                         <div className="col-md-6" id="fmrChart">
-                            <FinancialMgmtRptFilter />
+                            <FinancialMgmtRptFilter onChangeOfFnMgmtRptItemCnt={this.props.changeOfFnMgmtRptItemCnt} />
                             <FinancialManagementReportChart 
                                 data={ this.props.hmData } 
-                                width={ chartWidth } 
-                                height={ chartHeight }/>
+                                width={ Constants.CHART_WIDTH } 
+                                height={ Constants.CHART_HEIGHT }/>
                         </div>
                         <div className="col-md-6" id="devResChart">
                             <DevResultFilter 
+                                selectedTypeOfResult={this.props.hmParams.selectedTypeOfResult} 
+                                selectedFiscalYear={this.props.hmParams.selectedFiscalYear}
                                 onChangeTypeOfResult={ this.props.changeTypeOfResult } 
                                 onChangeFiscalYear={ this.props.changeFiscalYear } />
                             <DevelopmentResultChart 
                                 data={this.props.hmData} 
-                                width={chartWidth} 
-                                height={chartHeight} /> 
+                                width={ Constants.CHART_WIDTH } 
+                                height={ Constants.CHART_HEIGHT } /> 
                         </div>
                     </div>
                 </div>
@@ -54,14 +48,15 @@ class HigherManagement extends React.Component {
 const mapStateToProps = (state) => {
     return {
         hmData: state.hmDetails.hmData,
-        devResParams: state.hmDetails.devResParams
+        hmParams: state.hmDetails.hmParams
     }
 }
 
 const mapDispatchToProps = {
     getHMData: hmActions.getHMDashboardData,
     changeTypeOfResult: hmActions.changeTypeOfResult,
-    changeFiscalYear: hmActions.changeFiscalYear
+    changeFiscalYear: hmActions.changeFiscalYear,
+    changeOfFnMgmtRptItemCnt: hmActions.changeOfFnMgmtRptItemCnt
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HigherManagement);

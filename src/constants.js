@@ -2,6 +2,7 @@ const Constants = {
     
     /* Actions */
     SELECT_NAV: 'SELECT_NAV',
+    UPDATE_LEFT_NAV:'UPDATE_LEFT_NAV',
     LOAD_LEFT_NAV_STARTED: 'LOAD_LEFT_NAV_STARTED',
     LOAD_LEFT_NAV_ENDED: 'LOAD_LEFT_NAV_ENDED',
     LOAD_LEFT_NAV_SUCCESS: 'LOAD_LEFT_NAV_SUCCESS',
@@ -34,7 +35,12 @@ const Constants = {
     // Colors
     TARGET_COLOR: '#5b9bd5',
     ACTUAL_COLOR: '#ed7d31',
+    TARGET_HOVER_COLOR: '#2e79bd',
+    ACTUAL_HOVER_COLOR: '#c75e17',
     GRID_COLOR: '#ddd',
+
+    CHART_WIDTH: 520,
+    CHART_HEIGHT: 420,
 
     // API urls
     WEB_API_URL: 'http://localhost:8059/api/'
